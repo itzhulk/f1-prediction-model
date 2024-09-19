@@ -1,24 +1,24 @@
-﻿Track,Location,Length (km),Turns,DriverID,Season,Race,LapTime
-Monza,Italy,5.793,11,1,2024,1,83.27
-Silverstone,United Kingdom,5.891,18,2,2024,1,92.58
-Bahrain International Circuit,Bahrain,5.412,15,3,2024,1,95.22
-Jeddah Street Circuit,Saudi Arabia,6.174,27,4,2024,1,101.39
-Melbourne Street Circuit,Australia,5.278,14,5,2024,1,89.34
-Suzuka Circuit,Japan,5.807,18,6,2024,1,91.42
-Shanghai International Circuit,China,5.451,16,7,2024,1,87.54
-Miami International Autodrome,USA,5.412,19,8,2024,1,94.87
-Imola (Autodromo Enzo e Dino Ferrari),Italy,4.909,19,9,2024,1,85.34
-Monte Carlo (Monaco Grand Prix Circuit),Monaco,3.337,19,10,2024,1,77.39
-Circuit Gilles Villeneuve,Canada,4.361,14,11,2024,1,80.76
-Barcelona-Catalunya,Spain,4.675,16,12,2024,1,88.42
-Red Bull Ring,Austria,4.318,10,13,2024,1,79.98
-Hungaroring,Hungary,4.381,14,14,2024,1,82.34
-Spa-Francorchamps,Belgium,7.004,19,15,2024,1,122.54
-Zandvoort Circuit,Netherlands,4.259,14,16,2024,1,81.94
-Baku Street Circuit,Azerbaijan,6.003,20,17,2024,1,110.54
-Marina Bay Street Circuit,Singapore,4.940,23,18,2024,1,118.76
-Circuit of the Americas,USA,5.513,20,19,2024,1,105.12
-Autodromo Hermanos Rodriguez,Mexico,4.304,17,20,2024,1,86.23
-Autodromo Jose Carlos Pace (Interlagos),Brazil,4.309,15,21,2024,1,84.74
-Las Vegas Strip Circuit,USA,6.120,14,22,2024,1,99.54
-Losail International Circuit,Qatar,5.380,16,23,2024,1,95.34
+﻿Track,Location,Length (km)
+Monza,Italy,5.793
+Silverstone,United Kingdom,5.891
+Bahrain International Circuit,Bahrain,5.412
+Jeddah Street Circuit,Saudi Arabia,6.174
+Melbourne Street Circuit,Australia,5.278
+Suzuka Circuit,Japan,5.807
+Shanghai International Circuit,China,5.451
+Miami International Autodrome,USA,5.412
+Imola (Autodromo Enzo e Dino Ferrari),Italy,4.909
+Monte Carlo (Monaco Grand Prix Circuit),Monaco,3.337
+Circuit Gilles Villeneuve,Canada,4.361
+Barcelona-Catalunya,Spain,4.675
+Red Bull Ring,Austria,4.318
+Hungaroring,Hungary,4.381
+Spa-Francorchamps,Belgium,7.004
+Zandvoort Circuit,Netherlands,4.259
+Baku Street Circuit,Azerbaijan,6.003
+Marina Bay Street Circuit,Singapore,4.940
+Circuit of the Americas,USA,5.513
+Autodromo Hermanos Rodriguez,Mexico,4.304
+Autodromo Jose Carlos Pace (Interlagos),Brazil,4.309
+Las Vegas Strip Circuit,USA,6.120
+Losail International Circuit,Qatar,5.380
