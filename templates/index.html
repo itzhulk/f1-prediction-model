@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Prediction Dashboard</title>
+</head>
+<body>
+    <h1>F1 Performance Prediction</h1>
+    <form method="POST">
+        <label for="track">Select Track:</label>
+        <select name="track" id="track">
+            {% for track in track_list %}
+            <option value="{{ track }}" {% if track == selected_track %}selected{% endif %}>{{ track }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="prediction_type">Prediction Type:</label>
+        <select name="prediction_type" id="prediction_type">
+            <option value="driver" {% if prediction_type == 'driver' %}selected{% endif %}>Driver</option>
+            <option value="team" {% if prediction_type == 'team' %}selected{% endif %}>Team</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if prediction_type == 'team' %}
+        <h2>Team Performance Prediction</h2>
+        <img src="{{ url_for('static', filename='images/team_prediction.png') }}" alt="Team Prediction Graph">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Total Wins</th>
+                    <th>Average Predicted Ranking</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in team_summary %}
+                <tr>
+                    <td>{{ row.Team }}</td>
+                    <td>{{ row.Wins }}</td>
+                    <td>{{ row.TeamPrediction }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif prediction_type == 'driver' %}
+        <h2>Driver Performance Prediction</h2>
+        <img src="{{ url_for('static', filename='images/driver_prediction.png') }}" alt="Driver Prediction Graph">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Driver ID</th>
+                    <th>Age</th>
+                    <th>Historical Wins</th>
+                    <th>Predicted Ranking</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in driver_summary %}
+                <tr>
+                    <td>{{ row.Name }}</td>
+                    <td>{{ row.DriverID }}</td>
+                    <td>{{ row.Age }}</td>
+                    <td>{{ row.Wins }}</td>
+                    <td>{{ row.PredictedRanking }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>

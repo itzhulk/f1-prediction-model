@@ -1,0 +1,112 @@
+﻿Track,DriverID,Season,Race,LapTime
+Monza,1,2024,1,83.27
+Monza,2,2024,1,83.89
+Monza,3,2024,1,84.50
+Monza,5,2024,1,83.10
+Monza,7,2024,1,82.85
+Monza,8,2024,1,83.15
+Monza,9,2024,1,83.22
+Monza,10,2024,1,82.75
+Silverstone,1,2024,1,92.58
+Silverstone,2,2024,1,93.10
+Silverstone,4,2024,1,93.21
+Silverstone,6,2024,1,92.99
+Silverstone,9,2024,1,93.47
+Silverstone,11,2024,1,93.34
+Silverstone,12,2024,1,92.45
+Bahrain International Circuit,2,2024,1,95.45
+Bahrain International Circuit,3,2024,1,95.10
+Bahrain International Circuit,5,2024,1,95.15
+Bahrain International Circuit,7,2024,1,95.40
+Bahrain International Circuit,10,2024,1,95.19
+Bahrain International Circuit,13,2024,1,95.43
+Bahrain International Circuit,15,2024,1,95.25
+Jeddah Street Circuit,1,2024,1,101.39
+Jeddah Street Circuit,4,2024,1,101.49
+Jeddah Street Circuit,6,2024,1,101.45
+Jeddah Street Circuit,9,2024,1,101.52
+Jeddah Street Circuit,13,2024,1,101.31
+Jeddah Street Circuit,17,2024,1,101.25
+Melbourne Street Circuit,3,2024,1,89.34
+Melbourne Street Circuit,5,2024,1,89.20
+Melbourne Street Circuit,7,2024,1,89.12
+Melbourne Street Circuit,8,2024,1,89.40
+Melbourne Street Circuit,14,2024,1,89.50
+Suzuka Circuit,2,2024,1,91.42
+Suzuka Circuit,4,2024,1,91.60
+Suzuka Circuit,6,2024,1,91.35
+Suzuka Circuit,9,2024,1,91.20
+Suzuka Circuit,16,2024,1,91.50
+Shanghai International Circuit,1,2024,1,87.54
+Shanghai International Circuit,4,2024,1,87.80
+Shanghai International Circuit,7,2024,1,87.65
+Shanghai International Circuit,8,2024,1,87.70
+Shanghai International Circuit,11,2024,1,87.85
+Miami International Autodrome,3,2024,1,94.87
+Miami International Autodrome,5,2024,1,94.90
+Miami International Autodrome,6,2024,1,94.70
+Miami International Autodrome,10,2024,1,94.85
+Imola (Autodromo Enzo e Dino Ferrari),1,2024,1,85.34
+Imola (Autodromo Enzo e Dino Ferrari),5,2024,1,85.50
+Imola (Autodromo Enzo e Dino Ferrari),8,2024,1,85.60
+Imola (Autodromo Enzo e Dino Ferrari),12,2024,1,85.40
+Monte Carlo (Monaco Grand Prix Circuit),2,2024,1,77.39
+Monte Carlo (Monaco Grand Prix Circuit),4,2024,1,77.45
+Monte Carlo (Monaco Grand Prix Circuit),7,2024,1,77.50
+Monte Carlo (Monaco Grand Prix Circuit),9,2024,1,77.65
+Monte Carlo (Monaco Grand Prix Circuit),15,2024,1,77.35
+Circuit Gilles Villeneuve,1,2024,1,80.76
+Circuit Gilles Villeneuve,3,2024,1,80.65
+Circuit Gilles Villeneuve,5,2024,1,80.70
+Circuit Gilles Villeneuve,10,2024,1,80.85
+Circuit Gilles Villeneuve,16,2024,1,80.95
+Barcelona-Catalunya,2,2024,1,88.42
+Barcelona-Catalunya,4,2024,1,88.35
+Barcelona-Catalunya,6,2024,1,88.55
+Barcelona-Catalunya,8,2024,1,88.70
+Red Bull Ring,1,2024,1,79.98
+Red Bull Ring,5,2024,1,80.10
+Red Bull Ring,9,2024,1,80.20
+Red Bull Ring,11,2024,1,80.30
+Hungaroring,2,2024,1,82.34
+Hungaroring,4,2024,1,82.40
+Hungaroring,6,2024,1,82.50
+Hungaroring,8,2024,1,82.65
+Spa-Francorchamps,3,2024,1,122.54
+Spa-Francorchamps,7,2024,1,122.60
+Spa-Francorchamps,12,2024,1,122.75
+Spa-Francorchamps,16,2024,1,122.85
+Zandvoort Circuit,2,2024,1,81.94
+Zandvoort Circuit,5,2024,1,81.89
+Zandvoort Circuit,7,2024,1,81.75
+Zandvoort Circuit,13,2024,1,81.92
+Baku Street Circuit,1,2024,1,110.54
+Baku Street Circuit,3,2024,1,110.65
+Baku Street Circuit,6,2024,1,110.80
+Baku Street Circuit,10,2024,1,110.95
+Baku Street Circuit,14,2024,1,111.05
+Marina Bay Street Circuit,2,2024,1,118.76
+Marina Bay Street Circuit,4,2024,1,118.50
+Marina Bay Street Circuit,7,2024,1,118.35
+Marina Bay Street Circuit,11,2024,1,118.20
+Circuit of the Americas,1,2024,1,105.12
+Circuit of the Americas,5,2024,1,105.20
+Circuit of the Americas,8,2024,1,105.35
+Circuit of the Americas,14,2024,1,105.45
+Autodromo Hermanos Rodriguez,3,2024,1,86.23
+Autodromo Hermanos Rodriguez,6,2024,1,86.35
+Autodromo Hermanos Rodriguez,12,2024,1,86.45
+Autodromo Hermanos Rodriguez,15,2024,1,86.55
+Autodromo Jose Carlos Pace (Interlagos),2,2024,1,84.74
+Autodromo Jose Carlos Pace (Interlagos),4,2024,1,84.80
+Autodromo Jose Carlos Pace (Interlagos),8,2024,1,84.85
+Autodromo Jose Carlos Pace (Interlagos),13,2024,1,84.90
+Las Vegas Strip Circuit,1,2024,1,99.54
+Las Vegas Strip Circuit,3,2024,1,99.60
+Las Vegas Strip Circuit,7,2024,1,99.75
+Las Vegas Strip Circuit,11,2024,1,99.85
+Las Vegas Strip Circuit,16,2024,1,99.95
+Losail International Circuit,2,2024,1,95.34
+Losail International Circuit,5,2024,1,95.45
+Losail International Circuit,9,2024,1,95.50
+Losail International Circuit,17,2024,1,95.65
