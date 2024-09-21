@@ -1,0 +1,8 @@
+generate lap times sample data,
+update csv and db.. In one click,
+season wise update - historical wins and laptime
+use season for plotting stats - season wise performance trend line
+
+- database diagram created
+
+- prediction model requirement change, model follow graph.. give value to visualization and predict for 5 future years for each track + training

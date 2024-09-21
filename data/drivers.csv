@@ -1,31 +1,23 @@
-DriverID,Name,Team,Nationality,Age
-1,Raymond Moore,Ferrari,German,32
-2,Ashley Evans,Aston Martin,British,25
-3,Stephanie Moore,Aston Martin,Brazilian,29
-4,John Bradford,Red Bull,Finnish,33
-5,Barbara Dunlap,Haas,Canadian,34
-6,Thomas Munoz,Alpine,Canadian,32
-7,James Lee,Aston Martin,French,21
-8,Christopher Lyons,Aston Martin,Italian,32
-9,Joshua Huynh,Ferrari,Italian,40
-10,Vanessa Hines,Mercedes,Finnish,31
-11,Melissa Fisher,Ferrari,German,33
-12,Eric Rivera,McLaren,Spanish,37
-13,Juan Brown,McLaren,Italian,26
-14,Tasha Padilla,AlphaTauri,British,39
-15,Jacob Preston,Williams,Brazilian,20
-16,Stephanie Rogers,Ferrari,Brazilian,28
-17,Dr. Jorge Thomas,Ferrari,Italian,34
-18,Sarah Adams,Mercedes,Brazilian,24
-19,Jennifer Villarreal,Ferrari,British,26
-20,Jenny King,Alpine,Brazilian,28
-21,Michael Gibson,Alfa Romeo,Finnish,27
-22,Ann Johnson,Ferrari,Spanish,23
-23,Sheryl Andrews,Mercedes,Australian,40
-24,Melanie Wagner,Alfa Romeo,Canadian,30
-25,Andrew Lucero,Ferrari,Dutch,20
-26,Judy Ross,Aston Martin,Italian,27
-27,Kaitlyn Taylor,Ferrari,Italian,31
-28,Christopher Perry,Williams,Australian,22
-29,Sara Clements,McLaren,Finnish,31
-30,Tracy Gordon,Haas,Spanish,39
+DriverID,Name,Age,Team
+1,Lewis Hamilton,38,Mercedes
+2,George Russell,25,Mercedes
+3,Max Verstappen,26,Red Bull
+4,Sergio Perez,34,Red Bull
+5,Charles Leclerc,26,Ferrari
+6,Carlos Sainz,29,Ferrari
+7,Fernando Alonso,42,Aston Martin
+8,Lance Stroll,25,Aston Martin
+9,Lando Norris,24,McLaren
+10,Oscar Piastri,23,McLaren
+11,Esteban Ocon,27,Alpine
+12,Pierre Gasly,28,Alpine
+13,Valtteri Bottas,34,Alfa Romeo
+14,Zhou Guanyu,25,Alfa Romeo
+15,Kevin Magnussen,31,Haas
+16,Nico Hulkenberg,36,Haas
+17,Yuki Tsunoda,24,AlphaTauri
+18,Liam Lawson,21,AlphaTauri
+19,Alexander Albon,28,Williams
+20,Logan Sargeant,23,Williams
+21,Nyck de Vries,28,AlphaTauri
+22,Mick Schumacher,25,Haas

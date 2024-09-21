@@ -1,102 +1,121 @@
-from flask import Flask, render_template, request
+import os
 import sqlite3
 import pandas as pd
-import numpy as np
+from flask import Flask, render_template, request
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
+import numpy as np
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    # Connect to the SQLite database
-    conn = sqlite3.connect('f1_racing.db')
+# Paths for CSVs and database
+DATA_DIR = os.path.join(os.getcwd(), 'data')
+DB_PATH = os.path.join(os.getcwd(), 'f1_racing.db')
 
-    # Load data into Pandas DataFrames
-    drivers_df = pd.read_sql_query("SELECT * FROM drivers", conn)
-    lap_times_df = pd.read_sql_query("SELECT * FROM lap_times", conn)
-    tracks_df = pd.read_sql_query("SELECT * FROM tracks", conn)
-    historical_wins_df = pd.read_sql_query("SELECT * FROM historical_wins", conn)
+# Function to fetch drivers and tracks from the database
+def get_drivers_and_tracks():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
 
-    # Track list for dropdown
-    track_list = tracks_df['Track'].unique()
+    # Get drivers
+    cursor.execute("SELECT DriverID, Name FROM drivers")
+    drivers = cursor.fetchall()
 
-    if request.method == 'POST':
-        # Get form data
-        selected_track = request.form['track']
-        prediction_type = request.form['prediction_type']
-
-        # Filter data for the selected track
-        track_data = lap_times_df[lap_times_df['Track'] == selected_track]
-
-        # Merge with drivers and historical wins data
-        data = pd.merge(historical_wins_df, lap_times_df, on='DriverID')
-        data = pd.merge(data, drivers_df, on='DriverID')
-
-        # Feature selection and preprocessing
-        data = data[['Wins', 'LapTime', 'DriverID', 'Team', 'Name', 'Age']]  # Removed Age
-        data.dropna(inplace=True)  # Handle missing data if any
-
-        # Normalize the LapTime and Wins to give both equal importance
-        scaler = StandardScaler()
-        X = scaler.fit_transform(data[['Wins', 'LapTime']])
-
-        # Target variable as rankings from 1st to 20th
-        y = np.arange(1, len(X) + 1)
-
-        # Train the Linear Regression model
-        model = LinearRegression()
-        model.fit(X, y)
-
-        # Predictions for driver rankings
-        data['PredictedRanking'] = model.predict(X)
-        data['PredictedRanking'] = data['PredictedRanking'].rank()  # Rank the predicted scores
-
-        # Visualization and tabular data based on prediction type
-        if prediction_type == 'team':
-            # Team performance prediction
-            data['TeamPrediction'] = data.groupby('Team')['PredictedRanking'].transform('mean')
-
-            # Plot Team Prediction using line graph
-            plt.figure(figsize=(10, 6))
-            sns.lineplot(x='Team', y='TeamPrediction', data=data, marker='o', sort=False)
-            plt.title(f'Team Performance Prediction on {selected_track}')
-            plt.xlabel('Team')
-            plt.ylabel('Average Predicted Ranking')
-            plt.xticks(rotation=45)
-            plt.tight_layout()
-            plt.savefig('static/images/team_prediction.png')
-
-            # Tabular data for teams
-            team_summary = data.groupby('Team').agg({
-                'Wins': 'sum',
-                'TeamPrediction': 'mean'
-            }).reset_index()
-
-            return render_template('index.html', track_list=track_list, selected_track=selected_track, 
-                                   prediction_type=prediction_type, team_summary=team_summary.to_dict(orient='records'))
-
-        elif prediction_type == 'driver':
-            # Plot Driver Prediction using a line graph
-            plt.figure(figsize=(10, 6))
-            sns.lineplot(x='Name', y='PredictedRanking', data=data, marker='o', sort=False)
-            plt.title(f'Driver Performance Prediction on {selected_track}')
-            plt.xlabel('Driver')
-            plt.ylabel('Predicted Ranking')
-            plt.xticks(rotation=45)
-            plt.tight_layout()
-            plt.savefig('static/images/driver_prediction.png')
-
-            # Tabular data for drivers
-            driver_summary = data[['Name', 'DriverID','Age','Wins', 'PredictedRanking']]
-
-            return render_template('index.html', track_list=track_list, selected_track=selected_track, 
-                                   prediction_type=prediction_type, driver_summary=driver_summary.to_dict(orient='records'))
+    # Get tracks
+    cursor.execute("SELECT Tracks FROM tracks")
+    tracks = cursor.fetchall()
 
     conn.close()
-    return render_template('index.html', track_list=track_list)
+    return drivers, tracks
+
+# Function to get driver history on a selected track
+def get_driver_performance(driver_id, track_name):
+    conn = sqlite3.connect(DB_PATH)
+    query = '''SELECT Year, Ranking, LapTime FROM history
+               WHERE DriverID = ? AND Tracks = ? ORDER BY Year ASC'''
+    data = pd.read_sql_query(query, conn, params=(driver_id, track_name))
+    conn.close()
+    return data
+
+# Function to train model and predict
+def predict_driver_performance(driver_id, track_name):
+    # Get data from history
+    data = get_driver_performance(driver_id, track_name)
+
+    if data.empty:
+        return None, None
+
+    # Prepare data for prediction
+    X = data['Year'].values.reshape(-1, 1)
+    y_rank = data['Ranking'].values
+    y_lap = data['LapTime'].values
+
+    # Train ranking model
+    rank_model = LinearRegression().fit(X, y_rank)
+
+    # Train lap time model
+    lap_model = LinearRegression().fit(X, y_lap)
+
+    # Predict ranking and lap time for 2025
+    year_2025 = np.array([[2025]])
+    predicted_rank = rank_model.predict(year_2025)[0]
+    predicted_lap = lap_model.predict(year_2025)[0]
+
+    return predicted_rank, predicted_lap
+
+# Route for homepage and predictions
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    drivers, tracks = get_drivers_and_tracks()
+    selected_track = None
+    selected_driver = None
+    prediction_result = None
+    driver_history = None
+
+    if request.method == 'POST':
+        selected_driver = int(request.form['driver'])
+        selected_track = request.form['track']
+        driver_history = get_driver_performance(selected_driver, selected_track)
+
+        # Generate performance prediction
+        predicted_rank, predicted_lap = predict_driver_performance(selected_driver, selected_track)
+        prediction_result = {
+            'predicted_rank': predicted_rank,
+            'predicted_lap': predicted_lap
+        }
+
+        # Generate visualizations
+        if not driver_history.empty:
+            years = driver_history['Year']
+            rankings = driver_history['Ranking']
+            lap_times = driver_history['LapTime']
+
+            plt.figure(figsize=(10, 5))
+
+            # Plot rankings
+            plt.subplot(1, 2, 1)
+            plt.plot(years, rankings, marker='o', color='b')
+            plt.gca().invert_yaxis()  # Invert y-axis to have rank 1 at the top
+            plt.title(f'Ranking Trend for Driver {selected_driver} on {selected_track}')
+            plt.xlabel('Year')
+            plt.ylabel('Ranking')
+            plt.grid(True)
+
+            # Plot lap times
+            plt.subplot(1, 2, 2)
+            plt.plot(years, lap_times, marker='o', color='r')
+            plt.title(f'Lap Time Trend for Driver {selected_driver} on {selected_track}')
+            plt.xlabel('Year')
+            plt.ylabel('Lap Time (seconds)')
+            plt.grid(True)
+
+            plt.tight_layout()
+            plt.savefig(os.path.join('static', 'images', 'performance_visualization.png'))
+            plt.close()
+
+    return render_template('index.html', drivers=drivers, tracks=tracks, selected_track=selected_track,
+                           selected_driver=selected_driver, prediction_result=prediction_result,
+                           driver_history=driver_history)
 
 if __name__ == '__main__':
     app.run(debug=True)

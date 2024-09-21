@@ -1,24 +1,25 @@
-﻿Track,Location,Length (km)
-Monza,Italy,5.793
-Silverstone,United Kingdom,5.891
-Bahrain International Circuit,Bahrain,5.412
-Jeddah Street Circuit,Saudi Arabia,6.174
-Melbourne Street Circuit,Australia,5.278
-Suzuka Circuit,Japan,5.807
-Shanghai International Circuit,China,5.451
-Miami International Autodrome,USA,5.412
-Imola (Autodromo Enzo e Dino Ferrari),Italy,4.909
-Monte Carlo (Monaco Grand Prix Circuit),Monaco,3.337
-Circuit Gilles Villeneuve,Canada,4.361
-Barcelona-Catalunya,Spain,4.675
-Red Bull Ring,Austria,4.318
-Hungaroring,Hungary,4.381
-Spa-Francorchamps,Belgium,7.004
-Zandvoort Circuit,Netherlands,4.259
-Baku Street Circuit,Azerbaijan,6.003
-Marina Bay Street Circuit,Singapore,4.940
-Circuit of the Americas,USA,5.513
-Autodromo Hermanos Rodriguez,Mexico,4.304
-Autodromo Jose Carlos Pace (Interlagos),Brazil,4.309
-Las Vegas Strip Circuit,USA,6.120
-Losail International Circuit,Qatar,5.380
+Tracks,Location
+Monza,Italy
+Silverstone,UK
+Spa-Francorchamps,Belgium
+Suzuka,Japan
+Monaco,Monaco
+Circuit de Catalunya,Spain
+Hungaroring,Hungary
+Interlagos,Brazil
+Bahrain International Circuit,Bahrain
+Yas Marina,UAE
+Red Bull Ring,Austria
+Zandvoort,Netherlands
+Imola,Italy
+Hockenheim,Germany
+Marina Bay,Singapore
+Albert Park,Australia
+Circuit of the Americas,USA
+Shanghai,China
+Sochi,Russia
+Sepang,Malaysia
+Istanbul Park,Turkey
+Baku City Circuit,Azerbaijan
+Las Vegas Street Circuit,USA
+Miami International,USA
