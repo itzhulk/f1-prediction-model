@@ -1,0 +1,152 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0A0F3C;
+    background-image: linear-gradient(135deg, #0A0F3C 0%, #1E2A78 100%);
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    color: #EFEFEF;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    background-color: #2B3B7C;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+select, button {
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #1F3AB7;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+select:focus, button:focus {
+    outline: none;
+    border: 2px solid #00B0FF;
+}
+
+.visualization-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.visualization-container img {
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.prediction-result {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #2A3772;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: #E5E5E5;
+}
+
+.explanation {
+    background-color: #1E2A78;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    color: #E5E5E5;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.driver-card {
+    background-color: #2A3772;
+    width: 300px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: black;
+}
+
+.driver-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.driver-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.driver-card p {
+    margin: 5px 0;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #00A0FF;
+}
+
+.driver-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+.driver-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.driver-card h3 {
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+.driver-card p {
+    margin: 5px 0;
+    font-size: 1em;
+}
