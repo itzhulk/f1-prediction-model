@@ -1,161 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Driver Performance Prediction</title>
-    <style>body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #0A0F3C;
-        background-image: linear-gradient(135deg, #0A0F3C 0%, #1E2A78 100%);
-        color: #ffffff;
-        margin: 0;
-        padding: 20px;
-    }
-    
-    h1 {
-        text-align: center;
-        font-size: 2.5rem;
-        color: #FFFFFF;
-    }
-    
-    h2 {
-        text-align: center;
-        font-size: 1.75rem;
-        color: #EFEFEF;
-    }
-    
-    form {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-        background-color: #2B3B7C;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-    }
-    
-    label {
-        color: #FFFFFF;
-        font-size: 1.2rem;
-    }
-    
-    select, button {
-        padding: 10px;
-        margin: 0 10px;
-        font-size: 1rem;
-        border-radius: 5px;
-        border: none;
-        background-color: #1F3AB7;
-        color: white;
-        cursor: pointer;
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
-    }
-    
-    select:focus, button:focus {
-        outline: none;
-        border: 2px solid #00B0FF;
-    }
-    
-    .visualization-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-    }
-    
-    .visualization-container img {
-        width: 45%;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    }
-    
-    .prediction-result {
-        text-align: center;
-        margin-top: 20px;
-        background-color: #2A3772;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-    }
-    
-    p {
-        color: #E5E5E5;
-    }
-    
-    .explanation {
-        background-color: #1E2A78;
-        border-radius: 10px;
-        padding: 20px;
-        margin-top: 20px;
-        color: #E5E5E5;
-        text-align: center;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-    }
-    
-    .driver-card {
-        background-color: #2A3772;
-        width: fill;
-        padding: 20px;
-        margin: 20px auto;
-        border-radius: 10px;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-        text-align: center;
-        color: black;
-    }
-    
-    .driver-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        margin-bottom: 15px;
-    }
-    
-    .driver-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-        color: black;
-    }
-    
-    .driver-card p {
-        margin: 5px 0;
-    }
-    
-    .form-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 20px;
-        margin-top: 20px;
-    }
-    
-    button:hover {
-        background-color: #00A0FF;
-    }
-    
-    .driver-card {
-        border: 1px solid #ccc;
-        padding: 20px;
-        width: 250px;
-        text-align: center;
-        margin-top: 20px;
-        background-color: white;
-    }
-    
-    .driver-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-    
-    .driver-card h3 {
-        margin-top: 10px;
-        font-size: 1.5em;
-    }
-    
-    .driver-card p {
-        margin: 5px 0;
-        font-size: 1em;
-    }
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0A0F3C;
+            background-image: linear-gradient(135deg, #0A0F3C 0%, #1E2A78 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #FFFFFF;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            color: #EFEFEF;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background-color: #2B3B7C;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+        }
+
+        select,
+        button {
+            padding: 10px;
+            margin: 0 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: #1F3AB7;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        select:focus,
+        button:focus {
+            outline: none;
+            border: 2px solid #00B0FF;
+        }
+
+        .visualization-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .visualization-container img {
+            width: 45%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .prediction-result {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #2A3772;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .explanation {
+            background-color: #1E2A78;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #E5E5E5;
+            text-align: center;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .driver-card {
+            background-color: #2A3772;
+            width: fill;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: black;
+        }
+
+        .driver-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .driver-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .driver-card p {
+            margin: 5px 0;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #00A0FF;
+        }
+
+        .driver-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        .driver-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .driver-card h3 {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
+        .driver-card p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-child-60 {
+            flex: 0 0 70%;
+            /* Flex-grow, flex-shrink, and flex-basis */
+            padding: 10px;
+            border: 1px solid #000;
+        }
+
+        .flex-child-40 {
+            flex: 0 0 30%;
+            /* Flex-grow, flex-shrink, and flex-basis */
+            padding: 10px;
+            border: 1px solid #000;
+        }
     </style>
     <script>
         // Define the driver list with their image URLs
@@ -197,59 +215,71 @@
         }
 
         // Event listener for dropdown change
-        window.onload = function() {
-            document.getElementById('driver').addEventListener('change', function() {
+        window.onload = function () {
+            document.getElementById('driver').addEventListener('change', function () {
                 updateDriverCard(this.options[this.selectedIndex].text);
             });
         };
     </script>
 </head>
+
 <body>
     <h1>F1 Driver Performance Prediction</h1>
-    <div>
-    <form method="POST">
-        <label for="track">Select Track:</label>
-        <select name="track" id="track">
-            {% for track in tracks %}
-            <option value="{{ track[0] }}" {% if selected_track == track[0] %}selected{% endif %}>{{ track[0] }}</option>
-            {% endfor %}
-        </select>
+    <div class="flex-container">
+        <div class="flex-child-60">
+            <form method="POST">
+                <label for="track">Select Track:</label>
+                <select name="track" id="track">
+                    {% for track in tracks %}
+                    <option value="{{ track[0] }}" {% if selected_track==track[0] %}selected{% endif %}>{{ track[0] }}
+                    </option>
+                    {% endfor %}
+                </select>
 
-        <label for="driver">Select Driver:</label>
-        <select name="driver" id="driver">
-            {% for driver in drivers %}
-            <option value="{{ driver[0] }}" data-age="{{ driver[2] }}" data-team="{{ driver[3] }}" {% if selected_driver == driver[0] %}selected{% endif %}>{{ driver[1] }}</option>
-            {% endfor %}
-        </select>
+                <label for="driver">Select Driver:</label>
+                <select name="driver" id="driver">
+                    {% for driver in drivers %}
+                    <option value="{{ driver[0] }}" data-age="{{ driver[2] }}" data-team="{{ driver[3] }}" {% if
+                        selected_driver==driver[0] %}selected{% endif %}>{{ driver[1] }}</option>
+                    {% endfor %}
+                </select>
 
-        <button type="submit">Predict Performance</button>
-    </form>
+                <button type="submit">Predict Performance</button>
+            </form>
 
-    {% if prediction_result %}
-    <div>
-        <div class="prediction-result">
-            <h2>Predicted Performance for 2025</h2>
-            <p><strong>Predicted Ranking:</strong> {{ prediction_result.predicted_rank }}</p>
-            <p><strong>Predicted Lap Time:</strong> {{ prediction_result.predicted_lap }} seconds</p>
+            {% if prediction_result %}
+            <div>
+                <div class="prediction-result">
+                    <h2>Predicted Performance for 2025</h2>
+                    <p><strong>Predicted Ranking:</strong> {{ prediction_result.predicted_rank }}</p>
+                    <p><strong>Predicted Lap Time:</strong> {{ prediction_result.predicted_lap }} seconds</p>
+                </div>
+
+                <div class="visualization-container">
+                    <img src="{{ url_for('static', filename='images/performance_visualization.png') }}"
+                        alt="Performance Visualization">
+
+                </div>
+            </div>
+            <div class="explanation">
+                <p>These visualizations help us observe how a driver's ranking and lap time have evolved on a selected
+                    track over the years. A steady improvement in lap time often correlates with better rankings, which
+                    improves the accuracy of predictions. By observing the trendlines, we can make more reliable
+                    predictions about the driver's performance in upcoming races.</p>
+            </div>
+            {% endif %}
         </div>
-
-        <div class="visualization-container">
-            <img src="{{ url_for('static', filename='images/performance_visualization.png') }}" alt="Performance Visualization">
+        <!-- Driver Card -->
+        <div class="flex-child-40">
             <div class="driver-card">
                 <img id="driver-image" src="https://media.formula1.com/d_driver_fallback_image.png" alt="Driver Image">
                 <h3 id="driver-name">Driver Name</h3>
                 <p id="driver-age">Age: </p>
                 <p id="driver-team">Team: </p>
             </div>
-        </div>   
-    </div>  
-    <div class="explanation">
-        <p>These visualizations help us observe how a driver's ranking and lap time have evolved on a selected track over the years. A steady improvement in lap time often correlates with better rankings, which improves the accuracy of predictions. By observing the trendlines, we can make more reliable predictions about the driver's performance in upcoming races.</p>
-    </div>  
-    {% endif %}
+        </div>
     </div>
-    <!-- Driver Card -->
-
 
 </body>
+
 </html>
