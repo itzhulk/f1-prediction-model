@@ -18,7 +18,7 @@ def get_drivers_and_tracks():
     cursor = conn.cursor()
 
     # Get drivers
-    cursor.execute("SELECT DriverID, Name FROM drivers")
+    cursor.execute("SELECT DriverID, Name, Age, Team FROM drivers")
     drivers = cursor.fetchall()
 
     # Get tracks
